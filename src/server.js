@@ -24,9 +24,7 @@ app.get("/", async (req, res) => {
   res.json({ ok: "works" });
 });
 
-app.listen(3333, () => {
-  console.log("server no ar");
-});
+app.listen(process.env.PORT || 3333);
 
 // https://api.github.com/users/takenet/repos
 
