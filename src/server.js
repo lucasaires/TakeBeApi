@@ -20,6 +20,10 @@ app.get("/git/", async (req, res) => {
   res.json(obj);
 });
 
+app.get("/", async (req, res) => {
+  res.json({ ok: "works" });
+});
+
 app.listen(3333, () => {
   console.log("server no ar");
 });
