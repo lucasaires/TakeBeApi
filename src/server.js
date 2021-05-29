@@ -12,9 +12,6 @@ app.get("/git/", async (req, res) => {
   let { size } = req.query;
   const response = await getRepositories();
 
-  if (size - 1 < response.length) {
-    return;
-  }
   const obj = response.reverse()[size - 1];
 
   res.json(obj);
