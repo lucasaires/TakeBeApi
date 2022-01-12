@@ -12,9 +12,21 @@ app.get("/git/", async (req, res) => {
   let { size } = req.query;
   const response = await getRepositories();
 
-  const obj = response.reverse()[size - 1];
+  const cArray = response.filter((arr) => arr.language === "C#");
 
-  res.json(obj);
+  const obj = cArray.sort(function (a, b) {
+    if (a.created_at > b.created_at) {
+      return -1;
+    }
+    if (a.created_at > b.created_at) {
+      return 1;
+    }
+    // a deve ser igual a b
+    return 0;
+  });
+  const reverseArray = obj.reverse()[size - 1];
+
+  res.json(reverseArray);
 });
 
 app.get("/", async (req, res) => {
